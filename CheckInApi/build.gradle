@@ -20,8 +20,8 @@ mainClassName = 'com.danny.checkinapi.CheckInApiApplication'
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springdoc:springdoc-openapi-ui:1.6.8'
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.13.4'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+	implementation 'com.fasterxml.jackson.core:jackson-core:2.16.1'
     implementation 'org.springframework.kafka:spring-kafka'
     implementation 'org.apache.kafka:kafka-streams'
 	implementation 'org.postgresql:postgresql:42.4.2'

@@ -4,22 +4,14 @@ import an.awesome.pipelinr.Command;
 import an.awesome.pipelinr.Notification;
 import an.awesome.pipelinr.Pipeline;
 import an.awesome.pipelinr.Pipelinr;
-import com.danny.checkinapi.service.OrderManageServiceImpl;
 import com.nur.annotations.Generated;
-import com.nur.repositories.*;
-import infraestructure.repositories.MetodoPago.MetodoPagoJpaRepository;
-import infraestructure.repositories.check.in.CheckInJpaRepository;
-import infraestructure.repositories.persona.PersonaJpaRepository;
-import infraestructure.repositories.propiedad.PropiedadJpaRepository;
-import infraestructure.repositories.tipoPropiedad.TipoPropiedadJpaRepository;
-import infraestructure.repositories.transaccion.TransactionJpaRepository;
+import com.nur.repositories.IUserRepository;
+import infraestructure.repositories.users.UserCrudRepositoryImpl;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
-import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,6 +22,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import java.util.Arrays;
 
 @SpringBootApplication(
     scanBasePackages = {"com.danny.checkinapi.service", "com.danny.checkinapi.controllers"})
@@ -55,40 +49,10 @@ public class CheckInApiApplication {
     SpringApplication.run(CheckInApiApplication.class, args);
   }
 
-  @Autowired OrderManageServiceImpl orderManageService;
-
-  @Bean(name = "checkInRepository")
-  public CheckInRepository checkInRepository() {
-    return new CheckInJpaRepository();
-  }
-
-  @Bean(name = "passangerRepository")
-  public PersonaRepository passangerRepository() {
-    return new PersonaJpaRepository();
-  }
-
-  @Bean(name = "seatRepository")
-  public TransactionRepository seatRepository() {
-
-    return new TransactionJpaRepository();
-  }
-
-  @Bean(name = "metodoPagoRepository")
-  public MetodoPagoRepository metodoPagoRepository() {
-
-    return new MetodoPagoJpaRepository();
-  }
-
-  @Bean(name = "propiedadRepository")
-  public PropiedadRepository propiedadRepository() {
-
-    return new PropiedadJpaRepository();
-  }
-
-  @Bean(name = "tipoPropiedadRepository")
-  public TipoPropiedadRepository tipoPropiedadRepository() {
-    return new TipoPropiedadJpaRepository();
-  }
+	@Bean(name = "usersRepository")
+	public IUserRepository usersRepository(){
+		return new UserCrudRepositoryImpl();
+	}
 
   @Bean
   public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
