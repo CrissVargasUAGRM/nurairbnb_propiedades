@@ -7,5 +7,5 @@ import java.util.UUID;
 
 public interface IUserRepository {
 	UUID update(User user) throws BusinessRuleValidationException;
-	User getById(UUID id) throws Exception;
+	User getById(UUID id);
 }

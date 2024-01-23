@@ -25,7 +25,7 @@ public class UserCrudRepositoryImpl implements IUserRepository {
 	}
 
 	@Override
-	public User getById(UUID id) throws Exception {
+	public User getById(UUID id) {
 		try {
 			UserJpaModel jpaModel = userRepository.findById(id).orElse(null);
 			if(jpaModel == null) throw new BusinessRuleValidationException("Error");
