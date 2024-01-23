@@ -4,71 +4,75 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 import java.util.UUID;
 
 @Entity
 @Table(name = "CommendProperty")
 public class CommendPropertyJpaModel {
-	@Id
-	@Column(name = "COMMEND_ID")
-	private UUID id;
-	@Column(name = "USER_ID")
-	private UUID userId;
-	@Column(name = "VALORATION")
-	private String valoration;
-	@Column(name = "COMMEND")
-	private String commend;
-	@Column(name = "POINTS")
-	private Integer points;
-	@Column(name = "PROPERTY_ID")
-	private UUID propertyId;
+  @Id
+  @Column(name = "COMMEND_ID")
+  private UUID id;
 
-	public UUID getId() {
-		return id;
-	}
+  @Column(name = "USER_ID")
+  private UUID userId;
 
-	public void setId(UUID id) {
-		this.id = id;
-	}
+  @Column(name = "VALORATION")
+  private String valoration;
 
-	public UUID getUserId() {
-		return userId;
-	}
+  @Column(name = "COMMEND")
+  private String commend;
 
-	public void setUserId(UUID userId) {
-		this.userId = userId;
-	}
+  @Column(name = "POINTS")
+  private Integer points;
 
-	public String getValoration() {
-		return valoration;
-	}
+  @Column(name = "PROPERTY_ID")
+  private UUID propertyId;
 
-	public void setValoration(String valoration) {
-		this.valoration = valoration;
-	}
+  public UUID getId() {
+    return id;
+  }
 
-	public String getCommend() {
-		return commend;
-	}
+  public void setId(UUID id) {
+    this.id = id;
+  }
 
-	public void setCommend(String commend) {
-		this.commend = commend;
-	}
+  public UUID getUserId() {
+    return userId;
+  }
 
-	public Integer getPoints() {
-		return points;
-	}
+  public void setUserId(UUID userId) {
+    this.userId = userId;
+  }
 
-	public void setPoints(Integer points) {
-		this.points = points;
-	}
+  public String getValoration() {
+    return valoration;
+  }
 
-	public UUID getPropertyId() {
-		return propertyId;
-	}
+  public void setValoration(String valoration) {
+    this.valoration = valoration;
+  }
 
-	public void setPropertyId(UUID propertyId) {
-		this.propertyId = propertyId;
-	}
+  public String getCommend() {
+    return commend;
+  }
+
+  public void setCommend(String commend) {
+    this.commend = commend;
+  }
+
+  public Integer getPoints() {
+    return points;
+  }
+
+  public void setPoints(Integer points) {
+    this.points = points;
+  }
+
+  public UUID getPropertyId() {
+    return propertyId;
+  }
+
+  public void setPropertyId(UUID propertyId) {
+    this.propertyId = propertyId;
+  }
 }

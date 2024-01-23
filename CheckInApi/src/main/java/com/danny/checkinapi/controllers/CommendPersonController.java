@@ -13,17 +13,17 @@ import use.cases.command.commenPerson.create.CreateCommendPersonCommand;
 @CrossOrigin(origins = "*")
 @RestController
 public class CommendPersonController {
-	Logger logger = LoggerFactory.getLogger(CommendPersonController.class);
+  Logger logger = LoggerFactory.getLogger(CommendPersonController.class);
 
-	final Pipeline pipeline;
+  final Pipeline pipeline;
 
-	public CommendPersonController(Pipeline pipeline) {
-		this.pipeline = pipeline;
-	}
+  public CommendPersonController(Pipeline pipeline) {
+    this.pipeline = pipeline;
+  }
 
-	@PostMapping("/create/commend-person")
-	public CommendPersonDTO createCommendPerson(@RequestBody CommendPersonDTO commendPersonDTO){
-		CreateCommendPersonCommand command = new CreateCommendPersonCommand(commendPersonDTO);
-		return command.execute(pipeline);
-	}
+  @PostMapping("/create/commend-person")
+  public CommendPersonDTO createCommendPerson(@RequestBody CommendPersonDTO commendPersonDTO) {
+    CreateCommendPersonCommand command = new CreateCommendPersonCommand(commendPersonDTO);
+    return command.execute(pipeline);
+  }
 }

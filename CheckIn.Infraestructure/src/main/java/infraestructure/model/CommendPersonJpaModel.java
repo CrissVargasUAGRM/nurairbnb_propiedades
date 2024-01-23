@@ -4,71 +4,75 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 import java.util.UUID;
 
 @Entity
 @Table(name = "CommendPerson")
 public class CommendPersonJpaModel {
-	@Id
-	@Column(name = "ID_COMMEND")
-	private UUID id;
-	@Column(name = "USER_ID")
-	private UUID userId;
-	@Column(name = "VALORATION")
-	private String valoration;
-	@Column(name = "POINTS")
-	private Integer points;
-	@Column(name = "COMMEND")
-	private String commend;
-	@Column(name = "PERSON_ID")
-	private UUID personId;
+  @Id
+  @Column(name = "ID_COMMEND")
+  private UUID id;
 
-	public UUID getId() {
-		return id;
-	}
+  @Column(name = "USER_ID")
+  private UUID userId;
 
-	public void setId(UUID id) {
-		this.id = id;
-	}
+  @Column(name = "VALORATION")
+  private String valoration;
 
-	public UUID getUserId() {
-		return userId;
-	}
+  @Column(name = "POINTS")
+  private Integer points;
 
-	public void setUserId(UUID userId) {
-		this.userId = userId;
-	}
+  @Column(name = "COMMEND")
+  private String commend;
 
-	public String getValoration() {
-		return valoration;
-	}
+  @Column(name = "PERSON_ID")
+  private UUID personId;
 
-	public void setValoration(String valoration) {
-		this.valoration = valoration;
-	}
+  public UUID getId() {
+    return id;
+  }
 
-	public Integer getPoints() {
-		return points;
-	}
+  public void setId(UUID id) {
+    this.id = id;
+  }
 
-	public void setPoints(Integer points) {
-		this.points = points;
-	}
+  public UUID getUserId() {
+    return userId;
+  }
 
-	public String getCommend() {
-		return commend;
-	}
+  public void setUserId(UUID userId) {
+    this.userId = userId;
+  }
 
-	public void setCommend(String commend) {
-		this.commend = commend;
-	}
+  public String getValoration() {
+    return valoration;
+  }
 
-	public UUID getPersonId() {
-		return personId;
-	}
+  public void setValoration(String valoration) {
+    this.valoration = valoration;
+  }
 
-	public void setPersonId(UUID personId) {
-		this.personId = personId;
-	}
+  public Integer getPoints() {
+    return points;
+  }
+
+  public void setPoints(Integer points) {
+    this.points = points;
+  }
+
+  public String getCommend() {
+    return commend;
+  }
+
+  public void setCommend(String commend) {
+    this.commend = commend;
+  }
+
+  public UUID getPersonId() {
+    return personId;
+  }
+
+  public void setPersonId(UUID personId) {
+    this.personId = personId;
+  }
 }

@@ -4,9 +4,9 @@ import an.awesome.pipelinr.Command;
 import dtos.CommendPropertyDTO;
 
 public class CreateCommendPropertyCommand implements Command<CommendPropertyDTO> {
-	CommendPropertyDTO commendPropertyDTO;
+  CommendPropertyDTO commendPropertyDTO;
 
-	public CreateCommendPropertyCommand(CommendPropertyDTO commendPropertyDTO) {
-		this.commendPropertyDTO = commendPropertyDTO;
-	}
+  public CreateCommendPropertyCommand(CommendPropertyDTO commendPropertyDTO) {
+    this.commendPropertyDTO = commendPropertyDTO;
+  }
 }

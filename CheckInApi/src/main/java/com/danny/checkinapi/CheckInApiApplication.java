@@ -13,6 +13,7 @@ import infraestructure.repositories.commendProperty.CommendPropertyCrudRepositor
 import infraestructure.repositories.users.UserCrudRepositoryImpl;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
+import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
@@ -26,8 +27,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import java.util.Arrays;
 
 @SpringBootApplication(
     scanBasePackages = {"com.danny.checkinapi.service", "com.danny.checkinapi.controllers"})
@@ -53,20 +52,20 @@ public class CheckInApiApplication {
     SpringApplication.run(CheckInApiApplication.class, args);
   }
 
-	@Bean(name = "usersRepository")
-	public IUserRepository usersRepository(){
-		return new UserCrudRepositoryImpl();
-	}
+  @Bean(name = "usersRepository")
+  public IUserRepository usersRepository() {
+    return new UserCrudRepositoryImpl();
+  }
 
-	@Bean(name = "commendPersonRepository")
-	public ICommendPersonRepository commendPersonRepository(){
-	  return new CommendPersonCrudRepositoryImpl();
-	}
+  @Bean(name = "commendPersonRepository")
+  public ICommendPersonRepository commendPersonRepository() {
+    return new CommendPersonCrudRepositoryImpl();
+  }
 
-	@Bean
-	public ICommendPropertyRepository commendPropertyRepository(){
-	  return new CommendPropertyCrudRepositoryImpl();
-	}
+  @Bean
+  public ICommendPropertyRepository commendPropertyRepository() {
+    return new CommendPropertyCrudRepositoryImpl();
+  }
 
   @Bean
   public CommandLineRunner commandLineRunner(ApplicationContext ctx) {

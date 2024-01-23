@@ -9,15 +9,15 @@ import utils.UserMapper;
 
 @Component
 public class GetUserHandler implements Command.Handler<GetUserQuery, UsersDTO> {
-	private final IUserRepository userRepository;
+  private final IUserRepository userRepository;
 
-	public GetUserHandler(IUserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+  public GetUserHandler(IUserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
-	@Override
-	public UsersDTO handle(GetUserQuery command) {
-		User user = userRepository.getById(command.userId);
-		return UserMapper.from(user);
-	}
+  @Override
+  public UsersDTO handle(GetUserQuery command) {
+    User user = userRepository.getById(command.userId);
+    return UserMapper.from(user);
+  }
 }
