@@ -2,9 +2,12 @@ package infraestructure.repositories.commendProperty;
 
 import com.nur.model.CommendProperty;
 import com.nur.repositories.ICommendPropertyRepository;
+import core.BusinessRuleValidationException;
 import infraestructure.model.CommendPropertyJpaModel;
 import infraestructure.utils.CommendPropertyUtils;
-import java.util.UUID;
+
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class CommendPropertyCrudRepositoryImpl implements ICommendPropertyRepository {
@@ -28,4 +31,21 @@ public class CommendPropertyCrudRepositoryImpl implements ICommendPropertyReposi
   public CommendProperty getById(UUID id) {
     return null;
   }
+
+	@Override
+	public List<CommendProperty> getByPropiedadId(UUID idPropiedad) throws BusinessRuleValidationException {
+		List<CommendPropertyJpaModel> jpaModels = commendPropertyCrudRepository.findByPropertyId(idPropiedad);
+		List<CommendProperty> comentarioslist = new ArrayList<>();
+		if (jpaModels.isEmpty() ) {
+			return  comentarioslist;
+		}
+
+
+		for (CommendPropertyJpaModel jpaModel : jpaModels) {
+			comentarioslist.add(CommendPropertyUtils.jpaToCommendProperty(jpaModel));
+		}
+		return comentarioslist;
+	}
+
+
 }
