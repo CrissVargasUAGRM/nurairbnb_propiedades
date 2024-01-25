@@ -27,7 +27,7 @@ public class CommendPropertyController {
     return command.execute(pipeline);
   }
 
-	@GetMapping("/comment/{propId}")
+	@GetMapping("/commend/{propId}")
 	public List<CommendPropertyDTO> getCommends(@PathVariable String propId) {
 		GetCommendPropertyQuery query = new GetCommendPropertyQuery(propId);
 		return query.execute(pipeline);
