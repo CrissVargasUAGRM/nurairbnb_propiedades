@@ -5,9 +5,9 @@ import dtos.LoginResponseDTO;
 import dtos.LoginUserDTO;
 
 public class LoginUserCommand implements Command<LoginResponseDTO> {
-	LoginUserDTO credentials;
+  LoginUserDTO credentials;
 
-	public LoginUserCommand(LoginUserDTO credentials) {
-		this.credentials = credentials;
-	}
+  public LoginUserCommand(LoginUserDTO credentials) {
+    this.credentials = credentials;
+  }
 }

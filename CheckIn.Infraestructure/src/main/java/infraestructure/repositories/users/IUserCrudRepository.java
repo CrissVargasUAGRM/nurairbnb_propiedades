@@ -6,6 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IUserCrudRepository extends JpaRepository<UserJpaModel, UUID> {
 
-	UserJpaModel findByUsername(String username);
+  UserJpaModel findByUsername(String username);
 }
-

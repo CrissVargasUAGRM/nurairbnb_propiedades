@@ -29,8 +29,8 @@ public class UserCrudRepositoryImpl implements IUserRepository {
             user.getAccountType(),
             user.getPersonId());
     UserJpaModel model = UsersUtils.userToJpaEntity(users);
-	  PersonJpaModel modelPerson = UsersUtils.personUserToJpaEntity(users);
-	  personCrudRepository.save(modelPerson);
+    PersonJpaModel modelPerson = UsersUtils.personUserToJpaEntity(users);
+    personCrudRepository.save(modelPerson);
     return userRepository.save(model).getId();
   }
 
@@ -45,13 +45,13 @@ public class UserCrudRepositoryImpl implements IUserRepository {
     }
   }
 
-	@Override
-	public User getByUsername(String username) throws BusinessRuleValidationException {
-	  	UserJpaModel userJpaModel = userRepository.findByUsername(username);
-		  return UsersUtils.jpaToUser(userJpaModel);
-	}
+  @Override
+  public User getByUsername(String username) throws BusinessRuleValidationException {
+    UserJpaModel userJpaModel = userRepository.findByUsername(username);
+    return UsersUtils.jpaToUser(userJpaModel);
+  }
 
-	public void setUserRepository(IUserCrudRepository userRepository) {
+  public void setUserRepository(IUserCrudRepository userRepository) {
     this.userRepository = userRepository;
   }
 }

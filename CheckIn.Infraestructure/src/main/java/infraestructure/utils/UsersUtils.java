@@ -17,12 +17,12 @@ public class UsersUtils {
     return model;
   }
 
-  public static PersonJpaModel personUserToJpaEntity(User user){
-	  PersonJpaModel model = new PersonJpaModel();
-	  model.setId(user.getPersonId());
-	  model.setName(user.getUsername());
-	  model.setCi("9636927");
-	  return model;
+  public static PersonJpaModel personUserToJpaEntity(User user) {
+    PersonJpaModel model = new PersonJpaModel();
+    model.setId(user.getPersonId());
+    model.setName(user.getUsername());
+    model.setCi("9636927");
+    return model;
   }
 
   public static User jpaToUser(UserJpaModel jpaModel) throws BusinessRuleValidationException {

@@ -4,41 +4,42 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 import java.util.UUID;
 
 @Entity
 @Table(name = "Persons")
 public class PersonJpaModel {
-	@Id
-	@Column(name = "ID_PERSON")
-	private UUID id;
-	@Column(name = "NAME")
-	private String name;
-	@Column(name = "CI")
-	private String ci;
+  @Id
+  @Column(name = "ID_PERSON")
+  private UUID id;
 
-	public UUID getId() {
-		return id;
-	}
+  @Column(name = "NAME")
+  private String name;
 
-	public void setId(UUID id) {
-		this.id = id;
-	}
+  @Column(name = "CI")
+  private String ci;
 
-	public String getName() {
-		return name;
-	}
+  public UUID getId() {
+    return id;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setId(UUID id) {
+    this.id = id;
+  }
 
-	public String getCi() {
-		return ci;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setCi(String ci) {
-		this.ci = ci;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getCi() {
+    return ci;
+  }
+
+  public void setCi(String ci) {
+    this.ci = ci;
+  }
 }
