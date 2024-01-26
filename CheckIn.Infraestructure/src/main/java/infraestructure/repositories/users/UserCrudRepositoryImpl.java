@@ -3,7 +3,9 @@ package infraestructure.repositories.users;
 import com.nur.model.User;
 import com.nur.repositories.IUserRepository;
 import core.BusinessRuleValidationException;
+import infraestructure.model.PersonJpaModel;
 import infraestructure.model.UserJpaModel;
+import infraestructure.repositories.persons.IPersonCrudRepository;
 import infraestructure.utils.UsersUtils;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserCrudRepositoryImpl implements IUserRepository {
   @Autowired private IUserCrudRepository userRepository;
+  @Autowired private IPersonCrudRepository personCrudRepository;
 
   @Override
   public UUID update(User user) throws BusinessRuleValidationException {
@@ -26,6 +29,8 @@ public class UserCrudRepositoryImpl implements IUserRepository {
             user.getAccountType(),
             user.getPersonId());
     UserJpaModel model = UsersUtils.userToJpaEntity(users);
+	  PersonJpaModel modelPerson = UsersUtils.personUserToJpaEntity(users);
+	  personCrudRepository.save(modelPerson);
     return userRepository.save(model).getId();
   }
 
@@ -40,7 +45,13 @@ public class UserCrudRepositoryImpl implements IUserRepository {
     }
   }
 
-  public void setUserRepository(IUserCrudRepository userRepository) {
+	@Override
+	public User getByUsername(String username) throws BusinessRuleValidationException {
+	  	UserJpaModel userJpaModel = userRepository.findByUsername(username);
+		  return UsersUtils.jpaToUser(userJpaModel);
+	}
+
+	public void setUserRepository(IUserCrudRepository userRepository) {
     this.userRepository = userRepository;
   }
 }

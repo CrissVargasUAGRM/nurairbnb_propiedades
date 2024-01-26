@@ -10,7 +10,7 @@ public class UserJpaModel {
   @Column(name = "ID_USER")
   private UUID id;
 
-  @Column(nullable = false, name = "USER_NAME")
+  @Column(nullable = false, name = "USER_NAME", unique = true)
   private String username;
 
   @Column(nullable = false, name = "EMAIL")

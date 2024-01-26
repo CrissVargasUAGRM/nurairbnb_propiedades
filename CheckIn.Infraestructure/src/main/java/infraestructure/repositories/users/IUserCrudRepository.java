@@ -4,4 +4,8 @@ import infraestructure.model.UserJpaModel;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IUserCrudRepository extends JpaRepository<UserJpaModel, UUID> {}
+public interface IUserCrudRepository extends JpaRepository<UserJpaModel, UUID> {
+
+	UserJpaModel findByUsername(String username);
+}
+
