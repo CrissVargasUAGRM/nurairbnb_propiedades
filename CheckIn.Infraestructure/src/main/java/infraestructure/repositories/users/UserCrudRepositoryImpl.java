@@ -38,7 +38,6 @@ public class UserCrudRepositoryImpl implements IUserRepository {
   public User getById(UUID id) {
     try {
       UserJpaModel jpaModel = userRepository.findById(id).orElse(null);
-      if (jpaModel == null) throw new BusinessRuleValidationException("Error");
       return UsersUtils.jpaToUser(jpaModel);
     } catch (Exception e) {
       throw new RuntimeException(e);
